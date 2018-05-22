@@ -7,15 +7,15 @@ const app = new Vue({
   },
   watch: {
     lastValue: function(newsuggestion, oldsuggestion){
-      console.log("line 11", this.getCapitalized(newsuggestion));
-      suggest = this.getCapitalized(newsuggestion)
+      console.log("line 10", this.getCapitalized(newsuggestion));
+      this.suggest = this.getCapitalized(newsuggestion);
+      // console.log("line 12", suggest);
     }
   },
   methods: {
     // var lastValue = ''
 
      getCapitalized(value) {
-      console.log("line 19",value);
       if (lastValue.length + 1 == value.length && lastValue === value.substring(0, lastValue.length)) {
         // Value has been extended by one character (i.e. they're typing)
         value = value.split(/\b/). // Split by word boundaries
@@ -33,18 +33,26 @@ const app = new Vue({
         }).join(''); // Glue 'em back together
 
       }
-
-      console.log("line 40 lastValue", lastValue);
+      console.log("line 35 value", value);
+      console.log("line 36 lastValue", lastValue);
       // Update lastValue for next time
       lastValue = value;
-      //
+      // value = lastValue
 
-      console.log("line 39 value", value);
+      console.log("line 41 value", value);
       return value;
     },
 
     addSuggestion() {
-      console.log(suggestion.value);
+      console.log(lastValue.value);
+      this.suggest = "Please wait while your suggestion is added"
+      axios.post('bookSuggestions.php', {
+        bookSuggestion: this.suggest
+      }).then(function (response) {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      })
     }
 
   }
