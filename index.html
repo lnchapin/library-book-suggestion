@@ -30,7 +30,7 @@
         <div class="vert bClubs"><a href="#">Book Clubs</a></div>
         <div class="vert lists"><a href="#">Personalized Lists</a></div>
         <div class="vert kids"><a href="#">For Kids</a></div>
-        <div class="vert cSoon"><a href="#">Comming Soon</a></div>
+        <div class="vert cSoon"><a href="#">Coming Soon</a></div>
         <div class="vert music"><a href="#">Music</a></div>
         <div class="vert film"><a href="#">TV and Movies</a></div>
       </aside>
@@ -38,7 +38,7 @@
         <h2>{{heading}}</h2>
         <form @submit.prevent="addSuggestion" action="bookSuggestions.php" method="post">
           <label for="lastValue">Suggest a new book:</label>
-          <input v-model="lastValue" type="text" name="bookSuggestion" id="lastValue" :value="lastValue">
+          <input v-model="lastValue" type="text" name="bookSuggestion" id="lastValue" value="">
           <button type="submit" name="button">Suggest</button>
         </form>
         <p>{{suggest}}</p>

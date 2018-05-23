@@ -8,8 +8,8 @@ const app = new Vue({
   watch: {
     lastValue: function(newsuggestion, oldsuggestion){
       console.log("line 10", this.getCapitalized(newsuggestion));
-      this.suggest = this.getCapitalized(newsuggestion);
-      // console.log("line 12", suggest);
+      this.lastValue = this.getCapitalized(newsuggestion);
+      console.log("line 12", this.lastValue);
     }
   },
   methods: {
@@ -39,12 +39,12 @@ const app = new Vue({
       lastValue = value;
       // value = lastValue
 
-      console.log("line 41 value", value);
+      console.log("line 41 last value", lastValue);
       return value;
     },
 
     addSuggestion() {
-      console.log(lastValue.value);
+      console.log(lastValue);
       this.suggest = "Please wait while your suggestion is added"
       axios.post('bookSuggestions.php', {
         bookSuggestion: this.suggest
