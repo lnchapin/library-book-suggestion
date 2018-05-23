@@ -42,9 +42,9 @@
           <button type="submit" name="button">Suggest</button>
         </form>
         <div class="response">
-          <p v-if="loading">Please wait while your suggestion is added</p>
-          <p v-if="ipAddress">Thank you {{ipAddress}} for the suggestion.</p>
-          <p v-if="error">An error has occured please try again later</p>
+          <p v-show="loading">Please wait while your suggestion is added</p>
+          <p v-show="ipAddress">Thank you {{ipAddress}} for the suggestion.</p>
+          <p v-show="error">An error has occured please try again later</p>
         </div>
       </section>
     </main>
