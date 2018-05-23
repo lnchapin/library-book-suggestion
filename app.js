@@ -47,6 +47,7 @@ const app = new Vue({
       }).catch(function (error) {
         this.loading=false;
         this.error=true;
+        console.log(error);
       })
     }
 
