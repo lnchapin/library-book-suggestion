@@ -41,7 +41,11 @@
           <input v-model="lastValue" type="text" name="bookSuggestion" id="lastValue" value="">
           <button type="submit" name="button">Suggest</button>
         </form>
-        <p>{{suggest}}</p>
+        <div class="response">
+          <p v-if="loading">Please wait while your suggestion is added</p>
+          <p v-if="ipAddress">Thank you {{ipAddress}} for the suggestion.</p>
+          <p v-if="error">An error has occured please try again later</p>
+        </div>
       </section>
     </main>
 

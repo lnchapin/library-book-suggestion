@@ -105,3 +105,8 @@ a{
 input{
   width: 200px;
 }
+
+.response > p{
+  background-color: #A6C780;
+  padding: 10px;
+}

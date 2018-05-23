@@ -3,7 +3,9 @@ const app = new Vue({
   data: {
     heading: 'Are we missing a book you want to read?',
     lastValue: '',
-    suggest:''
+    loading: false,
+    ipAddress: '',
+    error: false
   },
   watch: {
     lastValue: function(value){
@@ -31,18 +33,20 @@ const app = new Vue({
       }
       // Update lastValue for next time
       lastValue = value;
-      
+
       return value;
     },
 
     addSuggestion() {
-      console.log(lastValue);
-      this.suggest = "Please wait while your suggestion is added"
+      this.loading=true;
       axios.post('bookSuggestions.php', {
-        bookSuggestion: this.suggest
       }).then(function (response) {
+        this.loading=false;
+        this.ipAddress=response;
         console.log(response);
       }).catch(function (error) {
+        this.loading=false;
+        this.error=true;
         console.log(error);
       })
     }
