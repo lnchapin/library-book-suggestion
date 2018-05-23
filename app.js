@@ -6,15 +6,11 @@ const app = new Vue({
     suggest:''
   },
   watch: {
-    lastValue: function(newsuggestion, oldsuggestion){
-      console.log("line 10", this.getCapitalized(newsuggestion));
-      this.lastValue = this.getCapitalized(newsuggestion);
-      console.log("line 12", this.lastValue);
+    lastValue: function(value){
+      this.lastValue = this.getCapitalized(value);
     }
   },
   methods: {
-    // var lastValue = ''
-
      getCapitalized(value) {
       if (lastValue.length + 1 == value.length && lastValue === value.substring(0, lastValue.length)) {
         // Value has been extended by one character (i.e. they're typing)
@@ -25,7 +21,7 @@ const app = new Vue({
             return word.toLowerCase();
           } else if (word.match(/[a-z]+/)) {
             // Capitalize it
-            return word[0].toUpperCase() + word.substr(1);
+            return word[0].toUpperCase() + word.substr(1).toLowerCase();
           } else {
             // Leave it
             return word;
@@ -33,13 +29,9 @@ const app = new Vue({
         }).join(''); // Glue 'em back together
 
       }
-      console.log("line 35 value", value);
-      console.log("line 36 lastValue", lastValue);
       // Update lastValue for next time
       lastValue = value;
-      // value = lastValue
-
-      console.log("line 41 last value", lastValue);
+      
       return value;
     },
 
