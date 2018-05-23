@@ -1,0 +1,107 @@
+html {
+  height: 100%;
+  background-color: #fffff0;
+}
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 10% auto;
+}
+
+header{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo{
+  grid-column-start: 1;
+}
+
+.catalogSearch{
+  grid-column-start: 2;
+  justify-self: end;
+  align-self: center;
+}
+
+.navbar{
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  text-align: center;
+  height: 70%;
+}
+
+.horizontal{
+  padding: 10px;
+  border-radius: 10px 15px 0 0;
+  background-color: #A6C780;
+  border: 1px solid #8DAE67;
+}
+
+.home{
+  grid-column-start: 1;
+
+}
+.catalog{
+  grid-column-start: 2;
+}
+.recommend{
+  grid-column-start: 3;
+  background-color: #1B9380;
+}
+.research{
+  grid-column-start: 4;
+}
+.download{
+  grid-column-start: 5;
+}
+.event{
+  grid-column-start: 6;
+}
+.account{
+  grid-column-start: 7;
+}
+
+a{
+  color: #292929;
+  text-decoration: none;
+}
+
+#app{
+  display: grid;
+  grid-template-columns: 25% 15% 60%;
+}
+
+.sidebar{
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 9;
+  font-size: 24px;
+  text-align: center;
+}
+
+.sidebar > div{
+  border: 1px solid #8DAE67;
+  background-color: #A6C780;
+}
+
+.sidebar :hover{
+  background-color: #1B9380;
+}
+
+.interact{
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.footer {
+  grid-row-start: 9;
+  grid-row-end: 10;
+  background-color: #A6C780;
+  padding-left: 10px;
+}
+
+input{
+  width: 200px;
+}

@@ -6,15 +6,48 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <header>
+      <img class="logo" src="img/MicroLibby.png" alt="Micro Libby logo">
+      <section class="catalogSearch">
+        <label for="catalogSearch">Catalog Search</label>
+        <input type="text" name="" placeholder="Books,E-Books, Audiobooks & More" value="">
+        <button type="button" name="button">Search</button>
+      </section>
+    </header>
+    <nav class="navbar">
+        <div class="horizontal home"><a href="#">Home</a></div>
+        <div class="horizontal catalog"><a href="#">Catalog</a></div>
+        <div class="horizontal recommend"><a href="#">Recommendations</a></div>
+        <div class="horizontal research"><a href="#">Research</a></div>
+        <div class="horizontal download"><a href="#">Downloads</a></div>
+        <div class="horizontal event"><a href="#">Events</a></div>
+        <div class="horizontal account"><a href="#">My Account</a></div>
+    </nav>
+
     <main id="app">
-      <h2>{{heading}}</h2>
-      <form @submit.prevent="addSuggestion" action="bookSuggestions.php" method="post">
-        <label for="lastValue">Suggest a new book:</label>
-        <input v-model="lastValue" type="text" name="bookSuggestion" id="lastValue" value="">
-        <button type="submit" name="button">Suggest</button>
-      </form>
-      <p>{{suggest}}</p>
+      <aside class="sidebar">
+        <div class="vert border-radius"><a href="#">On Order</a></div>
+        <div class="vert bClubs"><a href="#">Book Clubs</a></div>
+        <div class="vert lists"><a href="#">Personalized Lists</a></div>
+        <div class="vert kids"><a href="#">For Kids</a></div>
+        <div class="vert cSoon"><a href="#">Comming Soon</a></div>
+        <div class="vert music"><a href="#">Music</a></div>
+        <div class="vert film"><a href="#">TV and Movies</a></div>
+      </aside>
+      <section class="interact">
+        <h2>{{heading}}</h2>
+        <form @submit.prevent="addSuggestion" action="bookSuggestions.php" method="post">
+          <label for="lastValue">Suggest a new book:</label>
+          <input v-model="lastValue" type="text" name="bookSuggestion" id="lastValue" :value="lastValue">
+          <button type="submit" name="button">Suggest</button>
+        </form>
+        <p>{{suggest}}</p>
+      </section>
     </main>
+
+    <footer class="footer">
+      <p>Micro Library · 221B Baker St., Marylebone, London NW1 6XE · 01+44+555 555 5555</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
