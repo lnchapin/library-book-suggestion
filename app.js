@@ -42,7 +42,7 @@ const app = new Vue({
       axios.post('bookSuggestions.php', {
       }).then(function (response) {
         this.loading=false;
-        this.ipAddress=response;
+        this.ipAddress=response.data;
         console.log(response);
       }).catch(function (error) {
         this.loading=false;
