@@ -39,14 +39,13 @@ const app = new Vue({
 
     addSuggestion() {
       this.loading=true;
-       let that = this;
       axios.post('bookSuggestions.php', {
-      }).then(function (response) {
-        that.loading=false;
-        that.ipAddress=response.data;
-      }).catch(function (error) {
-        that.loading=false;
-        that.error=true;
+      }).then(response => {
+        this.loading=false;
+        this.ipAddress=response.data;
+      }).catch(error => {
+        this.loading=false;
+        this.error=true;
       })
     }
   }
