@@ -38,16 +38,29 @@ const app = new Vue({
     },
 
     addSuggestion() {
-          this.loading=true;
-           let that = this;
-          axios.post('bookSuggestions.php', {
-          }).then(function (response) {
-              that.loading=false;
-              that.ipAddress=response.data;
-          }).catch(function (error) {
-              that.loading=false;
-              that.error=true;
-          })
+      this.loading=true;
+       let that = this;
+      axios.post('bookSuggestions.php', {
+      }).then(function (response) {
+        that.loading=false;
+        that.ipAddress=response.data;
+      }).catch(function (error) {
+        that.loading=false;
+        that.error=true;
+      })
+    }
+  }
+})
+
+const heading = new Vue({
+  el: '#heading',
+  data: {
+    message: false,
+    search: ''
+  },
+  methods:{
+    noBook(){
+      this.message=true;
     }
   }
 })
