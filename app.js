@@ -13,7 +13,7 @@ const app = new Vue({
     }
   },
   methods: {
-     getCapitalized(value) {
+    getCapitalized(value) {
       if (lastValue.length + 1 == value.length && lastValue === value.substring(0, lastValue.length)) {
         // Value has been extended by one character (i.e. they're typing)
         value = value.split(/\b/). // Split by word boundaries
@@ -38,18 +38,16 @@ const app = new Vue({
     },
 
     addSuggestion() {
-      this.loading=true;
-      axios.post('bookSuggestions.php', {
-      }).then(function (response) {
-        this.loading=false;
-        this.ipAddress=response.data;
-        console.log(response);
-      }).catch(function (error) {
-        this.loading=false;
-        this.error=true;
-        console.log(error);
-      })
+          this.loading=true;
+           let that = this;
+          axios.post('bookSuggestions.php', {
+          }).then(function (response) {
+              that.loading=false;
+              that.ipAddress=response.data;
+          }).catch(function (error) {
+              that.loading=false;
+              that.error=true;
+          })
     }
-
   }
 })
